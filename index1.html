@@ -1,0 +1,107 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title> Transparent Login form </title>
+		<link rel="stylesheet" href="style1.css"> 
+	    <script src="index1.js" ></script> 
+       
+	</head>
+	<body>
+    <script>
+        
+      function formValidation(){
+          
+        var a = document.getElementById("uname").value;
+        var b = document.myform.email.value;
+        var c = document.myform.sex.value;
+        
+        if(a==""){
+            document.getElementById("message").innerHTML= "** Please fill username";
+            return false;
+        }
+        if(a.length<3){
+            document.getElementById("message").innerHTML= "** should be more than 3 letters";
+            return false;
+        }
+        if(a.length>20){
+            document.getElementById("message").innerHTML= "** should be less than 20 letters";
+            return false;
+        }
+       
+          if(b.indexOf('@')<=0){
+              document.getElementById("message1").innerHTML="** invalid @ position";
+              return false;
+          }
+          if(b.charAt(b.length-4)!='.'){
+         document.getElementById("message1").innerHTML="** invalid . position at 4";
+              return false;  
+          }  
+                  for(i=0; i<c.length; i++){
+              if(c[i].checked == true)
+                  return true;
+          
+          document.getElementById("message2").innerHTML="** Please Select gender"
+          return false;
+          
+          }
+      }
+    </script>
+	<div class="loginBox">
+		
+		<img src="user3.jfif" class="user">
+		<h2>Log In Here</h2>
+		<form name="myform"   onsubmit="return formValidation();"       >
+			<div class="username">
+            <p id="username">Name</p>
+			<input type="text" name = "" placeholder="Enter Name" id="uname" value="" autocomplete="off" >
+            <span id="message"></span>
+            </div>
+            <br>
+            
+            <div> 
+			<p>Email</p>
+			<input id="email" type="text" name = "email" placeholder="Enter Email" value="" autocomplete="off" >
+            <span id="message1"></span>
+                </div>
+             <span style="font-size: 15px " > Designation</span>
+            <br>
+            <br>
+           <select name="Designation" id="designation" onchange="return showdesignation()">
+                <option> Designation </option>
+                <option value="student"> Student </option>
+                <option value="professor"> Professor </option>
+            </select>
+         
+         <br>
+            <br>
+            <div id="radio">
+            <input type ="radio" name="sex" value="male"><a>Male</a> 
+            <input type ="radio" name="sex" value="female"><a> Female</a>
+            <input type ="radio" name="sex" value="other"> <a>Other</a>
+            
+            <div> <p id="message2"></p></div>
+            
+            </div>
+            
+			<input type="submit" name = "" value="sign In">
+			<a href="#"> Forget Password</a> 
+              
+                
+        <!--    <div id="student" style="visibility: hidden">   
+            <p>Roll Number</p>
+			<input type="text" name = "" placeholder="Enter Roll Number">
+			<p>Department</p>
+			<input type="text" name = "" placeholder="Enter Department">
+            </div>
+            
+            <div id="professor" style="visibility: hidden">
+            <p>Employee ID</p>
+			<input type="text" name = "" placeholder="Enter Roll Number">
+			<p>Department</p>
+			<input type="text" name = "" placeholder="Enter Department">
+            </div> -->
+		</form>
+	</div>
+	</body>
+</html>
